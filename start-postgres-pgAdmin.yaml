@@ -1,0 +1,52 @@
+version: "3.9"
+name: task-mgm-system
+services:
+  postgres:
+    image: postgres:12.5
+    container_name: pg-task-mgm-system
+    environment:
+      POSTGRES_DB: "task_mgm_system"
+      POSTGRES_USER: "task_mgm_system"
+      POSTGRES_PASSWORD: "task_mgm_system"
+      PGDATA: "/var/lib/postgresql/data/pgdata"
+    volumes:
+      - task-mgm-system-data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U task_mgm_system -d task_mgm_system"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    restart: unless-stopped
+    networks:
+      - task-mgm-system-net
+
+  pgadmin:
+    container_name: pgadmin-task-mgm-system
+    image: dpage/pgadmin4:8.11.0
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "photo@mail.ru"
+      PGADMIN_DEFAULT_PASSWORD: "task_mgm_system"
+#      PGADMIN_CONFIG_SERVER_MODE: "photo_db"
+    volumes:
+      - task-mgm-system-pgadmin-data:/var/lib/pgadmin
+    ports:
+      - "5050:80"
+    restart: unless-stopped
+#    deploy:
+#      resources:
+#        limits:
+#          cpus: '0.5'
+#          memory: 1G
+    networks:
+      - task-mgm-system-net
+
+volumes:
+  task-mgm-system-data:
+  task-mgm-system-pgadmin-data:
+
+networks:
+  task-mgm-system-net:
+    driver: bridge
