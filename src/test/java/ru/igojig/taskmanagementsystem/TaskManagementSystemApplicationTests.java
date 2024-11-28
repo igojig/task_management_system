@@ -1,4 +1,4 @@
-package ru.igojig.task_management_system;
+package ru.igojig.taskmanagementsystem;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

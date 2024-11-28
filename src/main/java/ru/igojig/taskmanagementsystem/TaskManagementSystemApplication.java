@@ -1,4 +1,4 @@
-package ru.igojig.task_management_system;
+package ru.igojig.taskmanagementsystem;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
