@@ -1,15 +1,33 @@
+logging:
+  level:
+    org.springframework.security: TRACE
+
 server:
   port: 8080
 spring:
   application:
     name: task_management_system
+
+  # for execute schema.sql and data.sql
+  sql:
+    init:
+      mode: always
+
   jpa:
     show-sql: true
     hibernate:
-      ddl-auto: update
+      ddl-auto: create
     open-in-view: false
+
+    # execute schema.sql and data.sql after hibernate create schema
+    defer-datasource-initialization: true
+
   datasource:
     url: jdbc:postgresql://localhost:5432/task_mgm_system
     username: task_mgm_system
     password: task_mgm_system
     driver-class-name: org.postgresql.Driver
+
+rsa:
+  private-key: classpath:certs/private.pem
+  public-key: classpath:certs/public.pem

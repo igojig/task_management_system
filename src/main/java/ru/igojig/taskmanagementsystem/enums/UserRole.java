@@ -1,6 +1,6 @@
 package ru.igojig.taskmanagementsystem.enums;
 
-public enum Roles {
+public enum UserRole {
     USER,
     ADMIN
 }

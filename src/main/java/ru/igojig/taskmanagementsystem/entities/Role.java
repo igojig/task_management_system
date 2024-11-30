@@ -2,7 +2,7 @@ package ru.igojig.taskmanagementsystem.entities;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import ru.igojig.taskmanagementsystem.enums.Roles;
+import ru.igojig.taskmanagementsystem.enums.UserRole;
 
 @Data
 @Entity
@@ -15,5 +15,5 @@ public class Role {
 
     @Column(name = "role")
     @Enumerated(EnumType.STRING)
-    private Roles role;
+    private UserRole role;
 }

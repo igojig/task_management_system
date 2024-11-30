@@ -1,6 +1,6 @@
 package ru.igojig.taskmanagementsystem.enums;
 
-public enum Priority {
+public enum TaskPriority {
     LOW,
     NORMAL,
     HIGH

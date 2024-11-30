@@ -1,6 +1,6 @@
 package ru.igojig.taskmanagementsystem.enums;
 
-public enum Status {
+public enum TaskStatus {
     PENDING,
     IN_PROGRESS,
     COMPLETED

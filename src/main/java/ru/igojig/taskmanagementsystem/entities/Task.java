@@ -4,8 +4,8 @@ import jakarta.persistence.*;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-import ru.igojig.taskmanagementsystem.enums.Priority;
-import ru.igojig.taskmanagementsystem.enums.Status;
+import ru.igojig.taskmanagementsystem.enums.TaskPriority;
+import ru.igojig.taskmanagementsystem.enums.TaskStatus;
 
 import java.time.LocalDateTime;
 
@@ -24,13 +24,13 @@ public class Task {
     @Column(name = "description")
     private String description;
 
-    @Column(name = "status")
+    @Column(name = "taskStatus")
     @Enumerated(EnumType.STRING)
-    private Status status;
+    private TaskStatus taskStatus;
 
-    @Column(name = "priority")
+    @Column(name = "taskPriority")
     @Enumerated(EnumType.STRING)
-    private Priority priority;
+    private TaskPriority taskPriority;
 
 
 
